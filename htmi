@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登入頁面</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+            background-color: #f3e5f5;
+            color: #4a148c;
+        }
+        h1 {
+            color: #6a1b9a;
+        }
+        form {
+            display: inline-block;
+            text-align: left;
+            margin-top: 20px;
+            background-color: #e1bee7;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        input {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            font-size: 16px;
+            border: 1px solid #ce93d8;
+            border-radius: 5px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #8e24aa;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #6a1b9a;
+        }
+        #message {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        .seventeen-decor {
+            margin-top: 30px;
+            color: #6a1b9a;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        .seventeen-decor img {
+            width: 150px;
+            height: auto;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>登入頁面</h1>
+    <form id="loginForm" onsubmit="handleLogin(event)">
+        <label for="username">使用者名稱</label>
+        <input type="text" id="username" name="username" placeholder="輸入使用者名稱" required>
+
+        <label for="password">密碼</label>
+        <input type="password" id="password" name="password" placeholder="輸入密碼" required>
+
+        <button type="submit">登入</button>
+    </form>
+    <p id="message"></p>
+
+    <div class="seventeen-decor">
+        <p>為 SEVENTEEN 粉絲準備的專屬設計！</p>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Seventeen_logo.svg" alt="Seventeen Logo">
+    </div>
+
+    <script>
+               function handleLogin(event) {
+            event.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            if (username === 'admin' && password === '1234') {
+                document.getElementById('message').innerText = '登入成功！歡迎，' + username + '！';
+                document.getElementById('message').style.color = 'green';
+            } else {
+                document.getElementById('message').innerText = '登入失敗，請檢查您的使用者名稱或密碼。';
+                document.getElementById('message').style.color = 'red';
+            }
+        }
+    </script>
+</body>
+</html>
